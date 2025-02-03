@@ -1,4 +1,4 @@
-function processData(input: string | number, config: {reverse_property : boolean} ){
+function processData(input: string | number, config: {reverse_property : boolean} = {reverse_property: true} ){
     if(typeof input === 'string'){
         return input.split('').reverse().join('');
     }
