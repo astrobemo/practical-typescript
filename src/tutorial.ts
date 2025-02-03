@@ -1,8 +1,18 @@
-function processData(input: string | number, config: {reverse_property : boolean} = {reverse_property: true} ){
-    if(typeof input === 'string'){
-        return input.split('').reverse().join('');
-    }
+function processData(
+    input: string | number, 
+    config: {reverse : boolean} = {reverse: false} 
+): number | string | undefined {
     if(typeof input === 'number'){
-        return input.toString().split('').reverse().join('');
+        return input * input;
+    }
+
+    if(typeof input === 'string'){
+        return config.reverse 
+        ? input.split('').reverse().join('').toUpperCase() 
+        : input.toUpperCase();
     }
 }
+
+console.log(processData(123)); // 15129
+console.log(processData('hello')); // OLLEH
+console.log(processData('hello', {reverse: true})); // HELLO
